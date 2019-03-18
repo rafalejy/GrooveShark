@@ -7,8 +7,10 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 public class Funcionalidades{
   
 
+
     public Funcion(int modoRep) {
 
+	int index = 0;
 
         if (modoRep ==0){			
 		SubirCancion();
@@ -48,6 +50,18 @@ public class Funcionalidades{
     }
 
 
+
+    public Reproducir(){
+
+	if (modoRep ==0){			
+		ReproduccionAleatoria();
+	}
+
+	if (modoRep ==1){
+		ReproduccionNoAleatoria();
+	}
+
+    }
 
     public ReproduccionAleatoria() {
         
@@ -106,10 +120,22 @@ public class Funcionalidades{
 
 	public CancionSiguiente() {
 
+	  if((index+1) < lista.size()){
+                index++;
+          	Reproducir();
+	  }
+
 	}
 
 
 	public CancionAnterior() {
+
+ 	   if(index==0){
+                 index = 0;
+           }else{
+                 index--;
+           Reproducir();
+	   }
 
 	}
 
