@@ -4,6 +4,7 @@ import com.haulmont.cuba.core.global.validation.MethodParametersValidationExcept
 import com.haulmont.cuba.gui.components.AbstractWindow;
 import com.haulmont.cuba.gui.components.PasswordField;
 import com.haulmont.cuba.gui.components.TextField;
+import java.util.Scanner; 
 
 import javax.inject.Inject;
 
@@ -55,3 +56,28 @@ public class RegisrarNuevoUsuario extends AbstractWindow {
         return passwordField.getValue();
     }
 }
+
+
+
+
+
+/**
+ * "Login"*/
+
+public class Login {
+public void run() {
+    Scanner scan = new Scanner (new File("the\\dir\\myFile.extension"));
+    Scanner keyboard = new Scanner (System.in);
+    String user = scan.nextLine();
+    String pass = scan.nextLine(); // looks at selected file in scan
+
+    String inpUser = keyboard.nextLine();
+    String inpPass = keyboard.nextLine(); // gets input from user
+
+    if (inpUser.equals(user) && inpPass.equals(pass)) {
+        System.out.print("your login message");
+    } else {
+        System.out.print("your error message");
+    }
+}
+} 
