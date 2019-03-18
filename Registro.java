@@ -54,4 +54,21 @@ public class RegisrarNuevoUsuario extends AbstractWindow {
     public String getPassword() {
         return passwordField.getValue();
     }
+	
+	
+	/**CREAR PLAYLIST**/
+	public PlayList CrearPlaylist() { 
+        Gson gson = new Gson(); 
+        ArrayList<String> listOfSongsNames = new ArrayList<String>(); 
+         
+        //Store all song names in a arraylist 
+        for(Song song : listOfSongs) { 
+            listOfSongsNames.add( song.getTitle() ); 
+        } 
+         
+        //Create JSON object 
+        Type listType = new TypeToken<ArrayList<String>>(){}.getType(); 
+                 
+        return gson.toJson(listOfSongsNames, listType); 
+    } 
 }
