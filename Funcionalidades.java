@@ -56,6 +56,7 @@ public class Funcionalidades{
             	mi_reproductor.AbrirFichero("C:/Users/Public/Music/Sample Music/Kalimba.mp3");
             	mi_reproductor.Play(0);
         } catch (Exception ex) {
+			
             	System.out.println("Error: " + ex.getMessage());
         }
 
