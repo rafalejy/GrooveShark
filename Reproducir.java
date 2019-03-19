@@ -2,6 +2,13 @@ package reproductor;
 
 import java.io.File;
 import javazoom.jlgui.basicplayer.BasicPlayer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import android.net.Uri;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.widget.ListView;
 
 
 public class Reproductor {

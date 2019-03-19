@@ -2,6 +2,13 @@ package reproductor;
 
 import java.io.File;
 import javazoom.jlgui.basicplayer.BasicPlayer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import android.net.Uri;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.widget.ListView;
 
 
 public class Funcionalidades{
@@ -173,16 +180,26 @@ public class Funcionalidades{
 
 
 	public CancionSiguiente() {
-
-	  if((index+1) < lista.size()){
+	try {
+            
+            if((index+1) < lista.size()){
                 index++;
           	Reproducir();
 	  }
+
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+
+	
 
 	}
 
 
 	public CancionAnterior() {
+
+	try {
+
 
  	   if(index==0){
                  index = 0;
@@ -190,16 +207,46 @@ public class Funcionalidades{
                  index--;
            Reproducir();
 	   }
+            
+        
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+
 
 	}
 
 
 	public AdelantarCancion() {
 
+	try {
+		mi_reproductor = mediaPlayer.PlaybackSession;
+   	 	mi_reproductor.Position = session.Position + TimeSpan.FromSeconds(10);
+		mi_reproductor.PlaybackSession.BufferingStarted += MediaPlaybackSession_BufferingStarted;
+		mi_reproductor.PlaybackSession.BufferingEnded += MediaPlaybackSession_BufferingEnded;
+
+        } catch (Exception ex) {
+			
+            	System.out.println("Error: " + ex.getMessage());
+        }
+
 	}
 
 
 	public RetrocederCancion() {
+
+
+	try {
+		mi_reproductor = mediaPlayer.PlaybackSession;
+   	 	mi_reproductor.Position = session.Position - TimeSpan.FromSeconds(10);
+		mi_reproductor.PlaybackSession.BufferingStarted -= MediaPlaybackSession_BufferingStarted;
+		mi_reproductor.PlaybackSession.BufferingEnded -= MediaPlaybackSession_BufferingEnded;
+
+        } catch (Exception ex) {
+			
+            	System.out.println("Error: " + ex.getMessage());
+        }
+
 
 	}
 
