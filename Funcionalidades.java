@@ -169,12 +169,30 @@ public class Funcionalidades{
 	}
 
 	public VisualizarPlayList() {
+		  List<Model> models = new ArrayList<>();
+
+      
+        for(Model model : models) {
+            System.out.println(model.getName());
+        }
+
+        for(int i = 0; i < models.size(); i++) {
+            System.out.println(models.get(i).getName());
+        }
 
 	}
 
 
-	public GuardarPlayList() {
+	public saved GuardarPlayList() {
+	 private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 	}
 
 
